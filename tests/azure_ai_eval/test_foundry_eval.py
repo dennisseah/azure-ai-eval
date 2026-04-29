@@ -28,9 +28,12 @@ def test_build_dataset(tmp_path):
         {"query": "What is the capital of Germany?", "expected_response": "Berlin"},
     ]
     predicted = ["Paris.", "Berlin."]
+    predicted_status = [0, 1]
 
     out = tmp_path / "data.jsonl"
-    result_path = foundry_eval.build_dataset(ground_truth, predicted, out)
+    result_path = foundry_eval.build_dataset(
+        ground_truth, predicted, predicted_status, out
+    )
 
     assert result_path == str(out)
     lines = out.read_text().splitlines()
@@ -39,9 +42,11 @@ def test_build_dataset(tmp_path):
     assert rows[0] == {
         "query": "What is the capital of France?",
         "response": "Paris.",
+        "status": 0,
         "ground_truth": "Paris",
     }
     assert rows[1]["response"] == "Berlin."
+    assert rows[1]["status"] == 1
 
 
 def test_missing_endpoint_raises(monkeypatch: pytest.MonkeyPatch):
