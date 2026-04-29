@@ -1,0 +1,41 @@
+version: "3"
+tasks:
+  eval-similarity:
+    desc: "Runs the similarity evaluation"
+    cmds:
+      - python -m azure_ai_eval.similarity
+
+  eval-foundry:
+    desc: "Runs the evaluation and uploads results to Azure AI Foundry"
+    cmds:
+      - python -m azure_ai_eval.foundry_eval
+
+  test-unit:
+    desc: "Runs unit tests with pytest"
+    cmds:
+      - uv run python -m pytest -p no:warnings --cov-report term-missing
+        --cov=foundry_memory tests
+
+  util-format-code:
+    desc: "Formats the code using ruff"
+    cmds:
+      - uv run ruff format .
+
+  util-lint:
+    desc: "Runs linting with Ruff"
+    cmds:
+      - uv run ruff check .
+      - uv run pyright .
+
+  util-gen-requirements-txt:
+    desc: "Generates requirements.txt from the current environment"
+    cmds:
+      - uv lock
+      - uv export --frozen --no-dev --output-file=requirements.txt
+      - uv export --frozen --all-groups --output-file=requirements.dev.txt
+
+  util-pip-audit:
+    desc: "Runs pip-audit to check for vulnerabilities"
+    cmds:
+      - uv run pip-audit -r requirements.txt
+      - uv run pip-audit -r requirements.dev.txt

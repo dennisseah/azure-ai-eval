@@ -1,0 +1,14 @@
+[
+    {
+        "query": "What is the capital of France?",
+        "expected_response": "It is Paris."
+    },
+    {
+        "query": "What is the capital of Germany?",
+        "expected_response": "It is Berlin."
+    },
+    {
+        "query": "What is the capital of Italy?",
+        "expected_response": "It is Rome."
+    }
+]
