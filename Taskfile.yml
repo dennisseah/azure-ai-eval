@@ -14,7 +14,7 @@ tasks:
     desc: "Runs unit tests with pytest"
     cmds:
       - uv run python -m pytest -p no:warnings --cov-report term-missing
-        --cov=foundry_memory tests
+        --cov=azure_ai_eval tests
 
   util-format-code:
     desc: "Formats the code using ruff"

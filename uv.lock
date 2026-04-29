@@ -134,7 +134,6 @@ dependencies = [
     { name = "azure-core" },
     { name = "azure-identity" },
     { name = "pip" },
-    { name = "pydantic" },
     { name = "pydantic-settings" },
     { name = "python-dotenv" },
 ]
@@ -157,7 +156,6 @@ requires-dist = [
     { name = "azure-core", specifier = ">=1.39.0" },
     { name = "azure-identity", specifier = ">=1.25.3" },
     { name = "pip", specifier = ">=26.1" },
-    { name = "pydantic", specifier = ">=2.13.3" },
     { name = "pydantic-settings", specifier = ">=2.14.0" },
     { name = "python-dotenv", specifier = ">=1.2.2" },
 ]

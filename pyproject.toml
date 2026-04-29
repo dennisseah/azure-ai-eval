@@ -9,7 +9,6 @@ dependencies = [
     "azure-core>=1.39.0",
     "azure-identity>=1.25.3",
     "pip>=26.1",
-    "pydantic>=2.13.3",
     "pydantic-settings>=2.14.0",
     "python-dotenv>=1.2.2",
 ]
@@ -42,5 +41,8 @@ exclude = ["typings", ".venv", ".vscode", ".git"]
 
 [tool.coverage.report]
 fail_under = 90
+exclude_also = [
+    'if __name__ == .__main__.:',
+]
 
 
